@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/test")
 public class TestController {
 
     TestRepository testRepository;
@@ -13,9 +14,8 @@ public class TestController {
         this.testRepository = testRepository;
     }
 
-    @RequestMapping("/test")
+    @RequestMapping("inner")
     public ModelAndView test(){
-//        System.out.println(testRepository.getTest().get(0).getMessage());
         ModelAndView mav = new ModelAndView("test/innerTest");
         mav.addObject("msg",testRepository.getTest().get(0).getMessage());
         return mav;
