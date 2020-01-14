@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @MapperScan(
-        basePackages = {"com.pollra.persistence", "com.pollra.controller"},
+        basePackages = {"com.pollra.persistence", "com.pollra.test"},
         sqlSessionFactoryRef = "Mybatis_Postgresql_SqlSessionFactory",
         sqlSessionTemplateRef = "Mybatis_Postgresql_SqlSessionTemplate"
 )

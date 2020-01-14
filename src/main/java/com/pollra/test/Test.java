@@ -1,4 +1,4 @@
-package com.pollra.controller;
+package com.pollra.test;
 
 
 import lombok.Getter;
