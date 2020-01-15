@@ -1,5 +1,7 @@
 package com.pollra.config;
 
+
+import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +14,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("application.yaml")
-public class MyProperties {
+public class MssqlProperties {
     @Value("${spring.datasource.jdbcUrl}")
     private String jdbcUrl;
     @Value("${spring.datasource.username}")
@@ -23,21 +25,22 @@ public class MyProperties {
     private int maximumPoolSize;
     @Value("${spring.datasource.auto-commit}")
     private boolean autoCommit;
+    @Value("${spring.datasource.port}")
+    private int port;
+    @Value("${spring.datasource.database}")
+    private String database;
 
     @Lazy
     @Bean(destroyMethod = "")
     public DataSource dataSource(){
-        final HikariConfig hikariConfig = new HikariConfig();
-        hikariConfig.setJdbcUrl(jdbcUrl);
-        hikariConfig.setUsername(username);
-        hikariConfig.setPassword(password);
-        hikariConfig.setMaximumPoolSize(maximumPoolSize);
-        hikariConfig.setAutoCommit(autoCommit);
-
-        hikariConfig.setLeakDetectionThreshold(2000);
-        hikariConfig.setPoolName("spring_boot_demo");
-
-        final HikariDataSource dataSource = new HikariDataSource(hikariConfig);
+        SQLServerDataSource dataSource = new SQLServerDataSource();
+        dataSource.setUser(this.username);
+        dataSource.setPassword(this.password);
+        dataSource.setURL(this.jdbcUrl);
+        dataSource.setPortNumber(this.port);
+        dataSource.setDatabaseName(this.database);
+        dataSource.setStatementPoolingCacheSize(this.maximumPoolSize);
         return dataSource;
     }
 }
+

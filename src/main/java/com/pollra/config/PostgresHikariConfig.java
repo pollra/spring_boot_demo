@@ -18,10 +18,10 @@ import javax.sql.DataSource;
         sqlSessionFactoryRef = "Mybatis_Postgresql_SqlSessionFactory",
         sqlSessionTemplateRef = "Mybatis_Postgresql_SqlSessionTemplate"
 )
-@Import({MyProperties.class})
+@Import({MssqlProperties.class})
 public class PostgresHikariConfig extends HikariConfig {
     @Autowired
-    private MyProperties properties;
+    private MssqlProperties properties;
 
     @Bean( name = "postgresqlDataSource" )
     public DataSource getDataSource() {
