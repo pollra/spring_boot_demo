@@ -1,4 +1,4 @@
-package com.pollra.test;
+package com.pollra.test.postgres;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.pollra.config;
+package com.pollra.config.postgres;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -12,16 +12,16 @@ import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("application.yaml")
-public class MyProperties {
-    @Value("${spring.datasource.jdbcUrl}")
+public class PostgresProperties {
+    @Value("${postgres.spring.datasource.jdbcUrl}")
     private String jdbcUrl;
-    @Value("${spring.datasource.username}")
+    @Value("${postgres.spring.datasource.username}")
     private String username;
-    @Value("${spring.datasource.password}")
+    @Value("${postgres.spring.datasource.password}")
     private String password;
-    @Value("${spring.datasource.maximumPoolSize}")
+    @Value("${postgres.spring.datasource.maximumPoolSize}")
     private int maximumPoolSize;
-    @Value("${spring.datasource.auto-commit}")
+    @Value("${postgres.spring.datasource.auto-commit}")
     private boolean autoCommit;
 
     @Lazy

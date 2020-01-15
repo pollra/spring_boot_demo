@@ -1,4 +1,4 @@
-package com.pollra.config;
+package com.pollra.config.mssql;
 
 import com.zaxxer.hikari.HikariConfig;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -14,28 +14,28 @@ import javax.sql.DataSource;
 
 @Configuration
 @MapperScan(
-        basePackages = {"com.pollra.persistence", "com.pollra.test"},
-        sqlSessionFactoryRef = "Mybatis_Postgresql_SqlSessionFactory",
-        sqlSessionTemplateRef = "Mybatis_Postgresql_SqlSessionTemplate"
+        basePackages = {"com.pollra.persistence.mssql", "com.pollra.test.mssql"},
+        sqlSessionFactoryRef = "Mybatis_Mssql_SqlSessionFactory",
+        sqlSessionTemplateRef = "Mybatis_Mssql_SqlSessionTemplate"
 )
-@Import({MyProperties.class})
-public class PostgresHikariConfig extends HikariConfig {
+@Import({MssqlProperties.class})
+public class MssqlHikariConfig extends HikariConfig {
     @Autowired
-    private MyProperties properties;
+    private MssqlProperties properties;
 
-    @Bean( name = "postgresqlDataSource" )
+    @Bean( name = "mssqlDataSource" )
     public DataSource getDataSource() {
         return properties.dataSource();
     }
 
-    @Bean( name = "Mybatis_Postgresql_SqlSessionFactory" )
+    @Bean( name = "Mybatis_Mssql_SqlSessionFactory" )
     public SqlSessionFactory getSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
         bean.setDataSource(getDataSource());
         return bean.getObject();
     }
 
-    @Bean( name = "Mybatis_Postgresql_SqlSessionTemplate" )
+    @Bean( name = "Mybatis_Mssql_SqlSessionTemplate" )
     public SqlSessionTemplate getSqlSessionTemplate() throws Exception {
         return new SqlSessionTemplate(getSqlSessionFactory());
     }
