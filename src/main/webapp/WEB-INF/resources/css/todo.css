@@ -1,0 +1,67 @@
+body{
+    margin:0px;
+    padding: 0px;
+}
+form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 600px;
+    border: 1px solid azure;
+    box-shadow: 0 0 8px -3px black;
+    border-radius: 5px;
+    padding: 50px;
+}
+ul{
+    list-style: none;
+    width: 100%;
+    float: left;
+    margin: 10px 11px;
+    padding: 0px;
+    flex-direction: row;
+    display: flex;
+    flex-grow: 1;
+}
+li{
+    float: left;
+    width: 25%;
+}
+#listContainer > ul{
+
+}
+#titleContainer{
+    width: 100%;
+    padding: 15px 0px;
+    background: #2d3b39;
+    display: flex;
+    border-radius: 3px;
+}
+#titleContainer > div {
+    display: flex;
+    margin: 0px 20px;
+    justify-content: space-around;
+    color: cadetblue;
+}
+#titleContainer > div > input {
+    width: 90px;
+    line-height: 20px;
+    margin: 0px 0px 0px 10px;
+    border: 0px;
+    background: aliceblue;
+}
+#titleContainer > div > span {
+    line-height: 35px;
+    margin: 0px;
+    padding: 0px;
+}
+#titleContainer > div > input::placeholder{
+    color: cadetblue;
+}
+#submitBtn{
+    padding: 5px 80px;
+    border: none;
+    cursor: pointer;
+    background: white;
+}

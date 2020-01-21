@@ -1,4 +1,4 @@
-package com.pollra.test.postgres;
+package com.pollra.test;
 
 
 import lombok.Getter;

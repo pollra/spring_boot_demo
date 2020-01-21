@@ -111,6 +111,12 @@
             <artifactId>mssql-jdbc</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/net.reini/slf4-cdi -->
+        <dependency>
+            <groupId>net.reini</groupId>
+            <artifactId>slf4-cdi</artifactId>
+            <version>1.0</version>
+        </dependency>
 
     </dependencies>
 
